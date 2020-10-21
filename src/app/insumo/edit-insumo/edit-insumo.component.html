@@ -1,0 +1,100 @@
+<div class="content-wrapper">
+
+    <!-- ENCABEZADO -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <!-- /.col-sm-6 -->
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">{{ labels.header.title }}
+                    </h1>
+                </div>
+                <!-- /.col-sm-6 -->
+                <!-- /.col-sm-6 -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">{{ labels.header.module.name }}</a></li>
+                        <li class="breadcrumb-item active">{{ labels.header.module.component }}</li>
+                    </ol>
+                </div>
+                <!-- /.col-sm-6 -->
+            </div>
+        </div>
+    </div>
+    <!-- /.ENCABEZADO -->
+
+    <!-- CUERPO -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- HEADER -->
+                        <div class="card-header">
+                            <h3 class="card-title">{{ labels.header.subtitle }}</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-file-excel"></i>
+                                </a>
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-file-pdf"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- HEADER -->
+
+                        <!-- BODY -->
+                        <div class="card-body">
+
+                            <a href="#" routerLink="/insumo/index/" class="btn btn-warning">{{ labels.form.button.back }}</a>
+
+                            <br>
+                            <br>
+
+                            <form role="form" [formGroup]="form" (ngSubmit)="submit()">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputCdg">{{ labels.form.label.cdg }}</label>
+                                        <input type="text" formControlName="cdg" class="form-control" id="inputCdg" [(ngModel)]="insumo.cdg">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputColor">{{ labels.form.label.color }}</label>
+                                        <input type="text" formControlName="color" class="form-control" id="inputColor" [(ngModel)]="insumo.color">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStock">{{ labels.form.label.stock }}</label>
+                                        <input type="text" formControlName="stock" class="form-control" id="inputStock" [(ngModel)]="insumo.stock">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputTamanoCantidad">{{ labels.form.label.tamanoCantidad }}</label>
+                                        <input type="text" formControlName="tamanoCantidad" class="form-control" id="inputTamanoCantidad" [(ngModel)]="insumo.tamanoCantidad">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ labels.form.label.producto }}</label>
+                                        <select class="form-control" formControlName="serieProducto">
+                                            <option>{{ labels.form.select.productoDefault }}</option>
+                                            <option *ngFor="let producto of productos" [value]="producto.serie">{{ producto.marca }} {{ producto.modelo }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ labels.form.label.tpoProducto }}</label>
+                                        <select class="form-control" formControlName="idTpoProducto">
+                                            <option>{{ labels.form.select.tpoProductoDefault }}</option>
+                                            <option *ngFor="let tpoProducto of tpoProductos" [value]="tpoProducto.id">{{ tpoProducto.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">{{ labels.form.button.save }}</button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                        <!-- BODY -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.CUERPO -->
+</div>

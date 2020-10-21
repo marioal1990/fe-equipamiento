@@ -1,0 +1,92 @@
+<div class="content-wrapper">
+
+    <!-- ENCABEZADO -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <!-- /.col-sm-6 -->
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">{{ labels.header.title }}
+                    </h1>
+                </div>
+                <!-- /.col-sm-6 -->
+                <!-- /.col-sm-6 -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">{{ labels.header.module.name }}</a></li>
+                        <li class="breadcrumb-item active">{{ labels.header.module.component }}</li>
+                    </ol>
+                </div>
+                <!-- /.col-sm-6 -->
+            </div>
+        </div>
+    </div>
+    <!-- /.ENCABEZADO -->
+
+    <!-- CUERPO -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- HEADER -->
+                        <div class="card-header">
+                            <h3 class="card-title">{{ labels.header.subtitle }}</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-file-excel"></i>
+                                </a>
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-file-pdf"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- HEADER -->
+
+                        <!-- BODY -->
+                        <div class="card-body">
+
+                            <a href="#" routerLink="/personal/index/" class="btn btn-warning">{{ labels.form.button.back }}</a>
+
+                            <br>
+                            <br>
+
+                            <form role="form" [formGroup]="form" (ngSubmit)="submit()">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputRut">{{ labels.form.label.rut}}</label>
+                                        <input type="text" formControlName="rut" class="form-control" id="inputRut" placeholder="Rut">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputNombres">{{ labels.form.label.nombres }}</label>
+                                        <input type="text" formControlName="nombres" class="form-control" id="inputNombres" placeholder="Nombres">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputApellidos">{{ labels.form.label.apellidos }}</label>
+                                        <input type="text" formControlName="apellidos" class="form-control" id="inputApellidos" placeholder="Apellidos">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputArea">{{ labels.form.label.area }}</label>
+                                        <input type="text" formControlName="area" class="form-control" id="inputArea" placeholder="Area">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail">{{ labels.form.label.email }}</label>
+                                        <input type="text" formControlName="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputFonoContacto">{{ labels.form.label.fonoContacto }}</label>
+                                        <input type="text" formControlName="fonoContacto" class="form-control" id="inputFonoContacto" placeholder="Fono Contacto">
+                                    </div>
+                                </div>
+                            </form>
+                            
+                        </div>
+                        <!-- BODY -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.CUERPO -->
+</div>
+

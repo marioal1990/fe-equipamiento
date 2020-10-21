@@ -1,0 +1,93 @@
+<div class="content-wrapper">
+
+    <!-- ENCABEZADO -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <!-- /.col-sm-6 -->
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">{{ labels.header.title }}
+                    </h1>
+                </div>
+                <!-- /.col-sm-6 -->
+                <!-- /.col-sm-6 -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">{{ labels.header.module.name }}</a></li>
+                        <li class="breadcrumb-item active">{{ labels.header.module.component }}</li>
+                    </ol>
+                </div>
+                <!-- /.col-sm-6 -->
+            </div>
+        </div>
+    </div>
+    <!-- /.ENCABEZADO -->
+
+    <!-- CUERPO -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- HEADER -->
+                        <div class="card-header">
+                            <h3 class="card-title">{{ labels.header.subtitle }}</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-file-excel"></i>
+                                </a>
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-file-pdf"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- HEADER -->
+
+                        <!-- BODY -->
+                        <div class="card-body">
+
+                            <a href="#" routerLink="/insumo/create/" class="btn btn-success">{{ labels.create }}</a>
+
+                            <br>
+                            <br>
+
+                            <table id="dt-insumos" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>{{ labels.id }}</th>
+                                        <th>{{ labels.cdg }}</th>
+                                        <th>{{ labels.color }}</th>
+                                        <th>{{ labels.stock }}</th>
+                                        <th>{{ labels.tamanoCantidad }}</th>
+                                        <th>{{ labels.fchCreacion }}</th>
+                                        <th>{{ labels.fchModificacion }}</th>
+                                        <th>{{ labels.activo }}</th>
+                                        <th>{{ labels.actions.title }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let insumo of insumos">
+                                        <td>{{ insumo.id }}</td>
+                                        <td><a href="#" [routerLink]="['/insumo/', insumo.id, 'view']">{{ insumo.cdg }}</a></td>
+                                        <td>{{ insumo.color }}</td>
+                                        <td>{{ insumo.stock }}</td>
+                                        <td>{{ insumo.tamanoCantidad }}</td>
+                                        <td>{{ insumo.fchCreacion }}</td>
+                                        <td>{{ insumo.fchModificacion }}</td>
+                                        <td>{{ insumo.activo }}</td>
+                                        <td>
+                                            <a href="#" [routerLink]="['/insumo/', insumo.id, 'edit']" class="btn btn-primary">{{ labels.actions.edit }}</a>
+                                            <button type="button" (click)="onDelete(insumo.id)" class="btn btn-danger">{{ labels.actions.delete }}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- BODY -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.CUERPO -->
+</div>
